@@ -1,6 +1,6 @@
 <template>
   <div class="board">
-    <button class="board__button">Write</button>
+    <button class="board__button" @click="onClickWrite">Write</button>
     <div class="board__list">
       <table class="board__list">
         <thead>
@@ -40,6 +40,7 @@
   </div>
 </template>
 <script>
+
 export default {
   name: "BoardList",
   data() { //변수생성
@@ -97,7 +98,11 @@ export default {
             "created_at": "작성일시1"
         }
       ]
+    },
+    onClickWrite() { 
+      this.$router.push("boardInsert");
     }
-    }
+  }
 }
+
 </script>
