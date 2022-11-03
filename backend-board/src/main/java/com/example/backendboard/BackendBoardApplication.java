@@ -1,13 +1,13 @@
-package com.example.demo;
+package com.example.backendboard;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class BackendBoardApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(BackendBoardApplication.class, args);
 	}
 
 }
