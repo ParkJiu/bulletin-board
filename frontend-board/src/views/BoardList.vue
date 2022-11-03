@@ -1,20 +1,25 @@
 <template>
   <div class="board">
-    <button class="board__button" @click="onClickWrite">Write</button>
+    <div class="board__btn">
+      <button class="board__button" @click="fnWrite()">Write</button>
+    </div>
     <div class="board__list">
-      <table class="board__list">
+      <table>
         <thead>
+          <tr>
           <th>No</th>
           <th>제목</th>
           <th>작성자</th>
           <th>등록일시</th>
+          </tr>
         </thead>
         <tbody>
         <tr v-for="(row, idx) in list" :key="idx">
-          <td>{{ row.idx }}</td>
+          <td width="80">{{ row.idx }}</td>
           <td><a v-on:click="fnView(`${row.idx}`)">{{ row.title }}</a></td>
-          <td>{{ row.author }}</td>
-          <td>{{ row.created_at }}</td>
+          <td width="150">{{ row.author }}</td>
+          <td width="150">{{ row.created_at }}</td>
+
         </tr>
       </tbody>
     </table>
@@ -42,6 +47,11 @@
 <script>
 
 export default {
+
+  //mounted(): 생성된 이후 화면이 표시될 때 발생
+  mounted() {
+    this.fnGetList()
+  },
   name: "BoardList",
   data() { //변수생성
     return {
@@ -64,45 +74,52 @@ export default {
       page: this.$route.query.page ? this.$route.query.page : 1,
       size: this.$route.query.size ? this.$route.query.size : 10,
       keyword: this.$route.query.keyword,
-      paginavigation: function () { //페이징 처리 for문 커스텀
+      paginavigation: () => 
+      { //페이징 처리 for문 커스텀
         let pageNumber = [] //;
         let start_page = this.paging.start_page;
         let end_page = this.paging.end_page;
-        for (let i = start_page; i <= end_page; i++) pageNumber.push(i);
+        for (let i = start_page; i <= end_page; i++) 
+        pageNumber.push(i);
         return pageNumber;
       }
     }
   },
-  mounted() {
-    this.fnGetList()
-  },
-  methods: {
-    fnGetList() {
-      this.list = [
-        {
-            "idx":1,
-            "title": "제목1",
-            "author": "작성자1",
-            "created_at": "작성일시1"
-        },
-        {
-            "idx":1,
-            "title": "제목1",
-            "author": "작성자1",
-            "created_at": "작성일시1"
-        },
-        {
-            "idx":1,
-            "title": "제목1",
-            "author": "작성자1",
-            "created_at": "작성일시1"
-        }
-      ]
-    },
-    onClickWrite() { 
-      this.$router.push("boardInsert");
-    }
-  }
-}
 
+  methods: {
+    fnGetList() { 
+      this.requestBody = { // 데이터 전송 
+      keyword: this.keyword,
+      page: this.page, 
+      size: this.size 
+      } 
+      this.$axios.get(this.$serverUrl + "/board/list", {
+        params: this.requestBody, 
+        headers: {} 
+      }).then((res) => { 
+        this.list = res.data //서버에서 데이터를 목록으로 보내므로 바로 할당하여 사용할 수 있다.
+      }).catch((err) => { 
+        if (err.message.indexOf('Network Error') > -1) {
+          alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.') } }) 
+    }, 
+    fnView(idx) {
+      this.requestBody.idx = idx;
+      this.$router.push ({
+        path: './boardDetail',
+        query: this.requestBody
+        })
+      },
+      fnWrite() {
+        this.$router.push({
+          path: 'boardInsert'
+        })
+      },
+      fnPage(n) {
+        if(this.page !==n ){
+          this.page = n
+          this.fnGetList();
+        }
+      },
+  },
+}
 </script>

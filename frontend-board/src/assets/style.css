@@ -1,11 +1,12 @@
 * { box-sizing: border-box; }
-body {
+body,html {
   margin: 0;
   cursor: default;
+  height: 100%;
 }
 a {
   text-decoration: none;
-  color: #ffffff;
+  cursor: pointer;
 }
 p {
   font-size: 20px;
@@ -17,7 +18,7 @@ ul {
 
 #app {
   min-height: 100%;
-  /* position: relative; */
+  height: auto;
   padding-bottom: 100px;
   /* footer의 height만큼 padding-bottom을 주고 min-height을 100% -> footer 하단 고정 */
 }
@@ -58,9 +59,9 @@ ul {
   transition: all 300ms ease-in;
 }
 .board { 
-  padding: 40px; 
+  padding: 30px; 
   padding-top: 100px; 
-  text-align: center; 
+  /* text-align: center;  */
 }  
 button { 
   background-color: transparent; 
@@ -68,23 +69,6 @@ button {
   border: none; 
   outline: none; 
   margin-bottom: 10px;
-}
-table {
-  width: 100%;
-  margin: auto;
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  border: 1px solid black;
-  padding: 12px;
-}
-section {
-  text-align: center;
-}
-.board__button {
-  display: block;
-  margin-left: auto;
   width: 100px;
   height: 40px;
   border: 1px solid grey;
@@ -92,20 +76,77 @@ section {
   background-color: #4d82cb;
   color: white;
 }
-.board__content {
-  align-items: center;
+table {
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid black;
+  border-collapse: collapse;
 }
-.insert {
-  margin-top: 120px;
+th, td {
+  border: 1px solid black;
+  padding: 10px;
+}
+/* board-list page */
+.board__list {
+  text-align: center;
+}
+.board__button {
+  display: block;
+  margin-left: auto;
+}
+/* board-insert page */
+input {
+  height: 40px;
+}
+input, textarea:focus{
+  outline: none;
+}
+textarea {
+  width: 100%;
+}
+.board__contents {
+  margin: 10px;
+}
+.board__input__title {
+  width: 80%;
+}
+.board__input__author {
+  width: 20%;
+}
 
+.insert__submitBtn {
+  display: block;
+  margin: auto;
+  margin-top: 10px;
 }
+/* board-detail page */
+.board__btn {
+  display: flex;
+  justify-content: flex-end;
+}
+.board__button {
+  margin: 3px;
+}
+
 .footer {
   background-color: #82b1ff;
   color: #ffffff;
   width: 100%;
   height: 100px;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   vertical-align: middle;
   text-align: center;
+}
+.divider__row {
+  width: 100%;
+  height: 1px;
+  background-color: lightgrey;
+}
+.divider__col {
+  display: inline-block;
+  height: 13px;
+  width: 1px;
+  background-color: lightgrey;
+  margin: 0 3px;
 }
