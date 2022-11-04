@@ -31,11 +31,6 @@ const routes = [
     name: "BoardDetail",
     component: BoardDetail,
   },
-  {
-    path: "/boardInsert",
-    name: "BoardInsert",
-    component: BoardInsert,
-  },
 ];
 
 const router = createRouter({
