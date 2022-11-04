@@ -1,10 +1,14 @@
 package com.example.backendboard.web;
+
+import com.example.backendboard.model.Header;
+import com.example.backendboard.entity.BoardEntity;
 import com.example.backendboard.services.BoardService;
 import com.example.backendboard.web.dtos.BoardDto;
-import com.example.backendboard.entity.BoardEntity;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 
 import java.util.List;
 
@@ -16,7 +20,10 @@ public class BoardController {
     private final BoardService boardService;
 
     @GetMapping("/board/list")
-    public List<BoardDto> boardList() { return boardService.getBoardList(); }
+    public Header<List<BoardDto>> boardList(
+            @PageableDefault(sort = {"idx"}) Pageable pageable) {
+        return boardService.getBoardList(pageable);
+    }
 
     @GetMapping("/board/{id}")
     public BoardDto getBoard(@PathVariable Long id) {
