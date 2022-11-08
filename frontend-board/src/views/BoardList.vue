@@ -25,8 +25,8 @@
     </table>
     <div v-if="paging.total_list_cnt > 0">
       <span class="pagination">
-      <a class="pagination__active" href="javascript:;" @click="fnPage(1)">&lt;&lt;</a>
-      <a class="pagination__active" href="javascript:;" v-if="paging.start_page > 10" @click="fnPage(`${paging.start_page-1}`)"
+      <a class="pagination__active arrow" href="javascript:;" @click="fnPage(1)">&lt;&lt;</a>
+      <a class="pagination__active arrow" href="javascript:;" v-if="paging.start_page > 10" @click="fnPage(`${paging.start_page-1}`)"
         >&lt;</a>
       <template v-for=" (n,index) in paginavigation()">
           <template v-if="paging.page==n">
@@ -36,9 +36,9 @@
               <a class="pagination__active" href="javascript:;" @click="fnPage(`${n}`)" :key="index">{{ n }}</a>
           </template>
       </template>
-      <a class="pagination__active" href="javascript:;" v-if="paging.total_page_cnt > paging.end_page"
+      <a class="pagination__active arrow" href="javascript:;" v-if="paging.total_page_cnt > paging.end_page"
         @click="fnPage(`${paging.end_page+1}`)">&gt;</a>
-      <a class="pagination__active" href="javascript:;" @click="fnPage(`${paging.total_page_cnt}`)">&gt;&gt;</a>
+      <a class="pagination__active arrow" href="javascript:;" @click="fnPage(`${paging.total_page_cnt}`)">&gt;&gt;</a>
       </span>
     </div>
     </div>
@@ -84,6 +84,7 @@ export default {
         return pageNumber;
       }
     }
+
   },
 
   methods: {
