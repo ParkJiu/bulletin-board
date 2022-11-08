@@ -172,9 +172,9 @@ textarea {
   font-weight: var(--weight-semi-bold)
 }
 .pagination__active:hover {
-  background-color: var(--color-light-blue);
+  color: var(--color-light-blue);
+  transform: scale(1.1);
   transition: all var(--animation-duration) ease-in;
-  border: var(--color-light-blue)
 }
 
 /* footer */
