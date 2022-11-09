@@ -57,7 +57,6 @@ export default {
     return {
       requestBody: {}, //리스트 페이지 데이터전송
       list: {}, //리스트 데이터
-      no: '', //게시판 숫자처리
       paging: {
         block: 0,
         end_page: 0,
@@ -73,7 +72,6 @@ export default {
       }, //페이징 데이터
       page: this.$route.query.page ? this.$route.query.page : 1,
       size: this.$route.query.size ? this.$route.query.size : 10,
-      keyword: this.$route.query.keyword,
       paginavigation: () => 
       { //페이징 처리 for문 커스텀
         let pageNumber = [] //;
@@ -89,8 +87,8 @@ export default {
 
   methods: {
     fnGetList() {
+      console.log(this.paging);
       this.requestBody = { // 데이터 전송        
-        keyword: this.keyword,
         page: this.page,
         size: this.size
       }
@@ -99,11 +97,9 @@ export default {
         params: this.requestBody,
         headers: {}
       }).then((res) => {      
-
         if (res.data.result_code === "OK") {
           this.list = res.data.data
           this.paging = res.data.pagination
-          this.no = this.paging.total_list_cnt - ((this.paging.page - 1) * this.paging.page_size)
         }
 
       }).catch((err) => {
@@ -125,7 +121,7 @@ export default {
         })
       },
       fnPage(n) {
-        if(this.page !==n ){
+        if(this.page !== n ){
           this.page = n
           this.fnGetList();
         }
