@@ -7,6 +7,7 @@
     <div class="board__contents">
       <input type="text" v-model="title" class="board__input__title" placeholder="제목을 입력해주세요">
       <input type="text" v-model="author" class="board__input__author" placeholder="작성자를 입력해주세요" v-if="idx === undefined">
+      <input type="text" v-model="author" class="board__input__author" readonly v-else>
       <textarea
         id=""
         cols="30"
@@ -67,7 +68,6 @@ export default {
         }) 
       },
       fnSave() {
-
         if (this.title === '') {
           alert("제목을 입력해주세요.")
           return;
@@ -78,7 +78,6 @@ export default {
           alert("내용을 입력해주세요.")
           return;
         }
-
         let apiUrl = this.$serverUrl + '/board'
         this.form = {
           "idx": this.idx,
