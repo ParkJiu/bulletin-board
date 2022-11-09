@@ -50,7 +50,7 @@ ul {
 #app {
   min-height: 100%;
   height: auto;
-  padding-bottom: 100px;
+  padding-bottom: 60px;
   /* footer의 height만큼 padding-bottom을 주고 min-height을 100% -> footer 하단 고정 */
 }
 #navbar {
@@ -78,7 +78,7 @@ ul {
   margin: 0 4px;
   padding: 8px 16px;
   border-radius: var(--size-border-radius);
-  border: 1px solid white transparent;
+  border: 1px solid transparent;
   font-size: var(--font-regular);
   font-weight: var(--weight-bold);
 }
@@ -94,7 +94,6 @@ ul {
   margin: auto;
 }  
 button { 
-  background-color: transparent; 
   cursor: pointer; 
   border: none; 
   outline: none; 
@@ -105,6 +104,10 @@ button {
   border-radius: var(--size-border-radius);
   background-color: var(--color-dark-blue);
   color: white;
+}
+.board__button:hover{
+  background-color: var(--color-light-blue);
+  transition: all var(--animation-duration) ease-in;
 }
 table {
   width: 100%;
@@ -120,6 +123,10 @@ th, td {
 /* board-list page */
 .board__list {
   text-align: center;
+}
+#board__list__a:hover {
+  background-color: var(--color-light-white);
+  transition: all var(--animation-duration) ease-in;
 }
 .board__button {
   display: block;
@@ -176,6 +183,7 @@ textarea {
   background-color: var(--color-light-white);
 }
 .pagination__active:hover {
+  background-color: var(--color-light-white);
   color: var(--color-light-blue);
   transform: scale(1.1);
   transition: all var(--animation-duration) ease-in;
@@ -186,7 +194,7 @@ textarea {
   background-color: var(--color-light-blue);
   color: var(--color-white);
   width: 100%;
-  height: 100px;
+  height: 60px;
   position: fixed;
   bottom: 0;
   text-align: center;
