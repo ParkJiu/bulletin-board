@@ -21,6 +21,7 @@
             <th scope="row">작성자</th>
             <td>
               <input type="text" v-model="author" class="board__input__author" placeholder="작성자를 입력해주세요" v-if="idx === undefined">
+              <input type="text" v-model="author" class="board__input__author" placeholder="작성자를 입력해주세요" readonly v-else>
             </td>
           </tr>
           <div class="divider__row" style="margin: 10px 0"></div>
