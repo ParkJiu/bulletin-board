@@ -5,19 +5,42 @@
         <button class="board__button" v-on:click="fnList">목록</button>
     </div>
     <div class="board__contents">
-      <input type="text" v-model="title" class="board__input__title" placeholder="제목을 입력해주세요">
-      <input type="text" v-model="author" class="board__input__author" placeholder="작성자를 입력해주세요" v-if="idx === undefined">
-      <input type="text" v-model="author" class="board__input__author" readonly v-else>
-      <textarea
-        id=""
-        cols="30"
-        rows="10"
-        v-model="contents"
-        class="board__input__content"
-        style="resize: none"
-        placeholder="내용을 입력해주세요"
-></textarea>
-
+      <table>
+        <colgroup>
+        <col style="width: 150px; background-color:#f7f8f9">
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row">제목</th>
+            <td>
+              <input type="text" v-model="title" class="board__input__title" placeholder="제목을 입력해주세요">
+            </td>
+          </tr>
+          <div class="divider__row" style="margin: 10px 0"></div>
+          <tr>
+            <th scope="row">작성자</th>
+            <td>
+              <input type="text" v-model="author" class="board__input__author" placeholder="작성자를 입력해주세요" v-if="idx === undefined">
+            </td>
+          </tr>
+          <div class="divider__row" style="margin: 10px 0"></div>
+          <tr>
+            <th scope="row">내용</th>
+            <td>
+              <textarea
+                id=""
+                cols="30"
+                rows="10"
+                v-model="contents"
+                class="board__input__content"
+                style="resize: none"
+                placeholder="내용을 입력해주세요"
+              ></textarea>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+        
     </div>
 </div>
 </template>
@@ -121,3 +144,8 @@ export default {
 
 
 </script>
+<style scoped>
+input, textarea {
+  margin-left: 15px;
+}
+</style>
