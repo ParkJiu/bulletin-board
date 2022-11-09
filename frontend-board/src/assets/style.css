@@ -87,6 +87,11 @@ ul {
   border: var(--color-white);
   transition: all var(--animation-duration) ease-in;
 }
+.clicked {
+  background-color: #4d82cb;
+  border-radius: var(--size-border-radius);
+  border: var(--color-white);
+}
 .board { 
   padding: 30px; 
   padding-top: 100px; 
