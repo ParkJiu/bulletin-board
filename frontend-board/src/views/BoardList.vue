@@ -1,7 +1,7 @@
 <template>
   <div class="board">
     <div class="board__btn">
-      <button class="board__button" @click="fnWrite()">Write</button>
+      <button class="board__button" @click="fnWrite()">글쓰기</button>
     </div>
     <div class="board__list">
       <table>
@@ -16,7 +16,7 @@
         <tbody>
         <tr v-for="(row, idx) in list" :key="idx">
           <td width="80">{{ row.idx }}</td>
-          <td><a v-on:click="fnView(`${row.idx}`)">{{ row.title }}</a></td>
+          <td id="board__list__a"><a v-on:click="fnView(`${row.idx}`)">{{ row.title }}</a></td>
           <td width="150">{{ row.author }}</td>
           <td width="150">{{ row.created_at.slice(0,10)}}</td>
 
