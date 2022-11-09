@@ -118,18 +118,18 @@ export default {
         path: './boardDetail',
         query: this.requestBody
         })
-      },
-      fnWrite() {
-        this.$router.push({
-          path: 'boardInsert'
-        })
-      },
-      fnPage(n) {
-        if(this.page !==n ){
-          this.page = n
-          this.fnGetList();
-        }
-      },
+    },
+    fnWrite() {
+      this.$router.push({
+        path: 'boardInsert'
+      })
+    },
+    fnPage(n) {
+      if(this.page !==n ){
+        this.page = n
+        this.fnGetList();
+      }
+    },
   },
 }
 </script>
