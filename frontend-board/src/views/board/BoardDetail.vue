@@ -63,6 +63,15 @@ export default {
       })
     },
     fnUpdate() {
+
+      if (this.title === '') {
+          alert("제목을 입력해주세요.")
+          return;
+        } else if (this.contents === ''){
+          alert("내용을 입력해주세요.")
+          return;
+        }
+
       this.$router.push({
         path: './boardInsert',
         query: this.requestBody

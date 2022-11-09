@@ -67,6 +67,18 @@ export default {
         }) 
       },
       fnSave() {
+
+        if (this.title === '') {
+          alert("제목을 입력해주세요.")
+          return;
+        } else if (this.author === '') {
+          alert("작성자를 입력해주세요.")
+          return;
+        } else if (this.contents === ''){
+          alert("내용을 입력해주세요.")
+          return;
+        }
+
         let apiUrl = this.$serverUrl + '/board'
         this.form = {
           "idx": this.idx,
