@@ -2,13 +2,12 @@
 :root {
   /* Color */
 --color-white: #ffffff;
---color-light-white: #eeeeee;
 --color-dark-white: #bdbdbd;
 --color-light-blue: #82b1ff;
 --color-dark-blue: #4d82cb;
 --color-grey: #4d4d4d;
 --color-dark-grey: #616161;
---color-light-grey: #7c7979;
+--color-light-grey: #eeeeee;
 --color-yellow: #fff7d1;
 --color-orange:#feb546;
 --color-black: #000000;
@@ -127,7 +126,7 @@ table {
   text-align: center;
 }
 #board__list__a:hover {
-  background-color: var(--color-light-blue);
+  background-color:var(--color-light-grey);
   transition: all var(--animation-duration) ease-in;
 }
 .board__button {
@@ -193,13 +192,13 @@ textarea {
   cursor: pointer;
 }
 .pagination__active__clicked{
-  background-color: var(--color-light-white);
+  background-color: var(--color-light-grey);
 }
 .pagination__active.arrow {
   background-color: var(--color-light-white);
 }
 .pagination__active:hover {
-  background-color: var(--color-light-blue);
+  background-color: var(--color-light-white);
   transform: scale(1.1);
   transition: all var(--animation-duration) ease-in;
 }
