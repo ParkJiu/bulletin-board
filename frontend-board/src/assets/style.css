@@ -88,7 +88,7 @@ ul {
   border: var(--color-white);
   transition: all var(--animation-duration) ease-in;
 }
-.clicked {
+.navbar__menu__item__clicked {
   background-color: #4d82cb;
   border-radius: var(--size-border-radius);
   border: var(--color-white);
@@ -127,7 +127,7 @@ table {
   text-align: center;
 }
 #board__list__a:hover {
-  background-color: var(--color-light-white);
+  background-color: var(--color-light-blue);
   transition: all var(--animation-duration) ease-in;
 }
 .board__button {
@@ -192,12 +192,14 @@ textarea {
   font-weight: var(--weight-semi-bold);
   cursor: pointer;
 }
+.pagination__active__clicked{
+  background-color: var(--color-light-white);
+}
 .pagination__active.arrow {
   background-color: var(--color-light-white);
 }
 .pagination__active:hover {
-  background-color: var(--color-light-white);
-  color: var(--color-light-blue);
+  background-color: var(--color-light-blue);
   transform: scale(1.1);
   transition: all var(--animation-duration) ease-in;
 }

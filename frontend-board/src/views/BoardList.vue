@@ -30,7 +30,7 @@
         >&lt;</a>
       <template v-for=" (n,index) in paginavigation()">
           <template v-if="paging.page==n">
-              <strong class="pagination__active" :key="index">{{ n }}</strong>
+              <strong class="pagination__active pagination__active__clicked" :key="index">{{ n }}</strong>
           </template>
           <template v-else>
               <a class="pagination__active" href="javascript:;" @click="fnPage(`${n}`)" :key="index">{{ n }}</a>
