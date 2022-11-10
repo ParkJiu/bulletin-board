@@ -38,5 +38,8 @@ export default {
   a{
     color: #ffffff;
   }
+  h3 {
+    margin-left: 10px;
+  }
 </style>
   
