@@ -4,10 +4,10 @@
       <div class="navbar__menu">
         <ul class="navbar__menu">
           <li class="navbar__menu__item">
-            <router-link to="/" @click="ClickedHome" :class="{clicked : clickedHome}">Home</router-link>
+            <router-link to="/" @click="ClickedHome" :class="{navbar__menu__item__clicked : clickedHome}">Home</router-link>
           </li>
           <li class="navbar__menu__item">
-            <router-link to="/boardList" @click="ClickedBoard" :class="{clicked : clickedBoard}">Board</router-link>
+            <router-link to="/boardList" @click="ClickedBoard" :class="{navbar__menu__item__clicked : clickedBoard}">Board</router-link>
           </li>
         </ul>
     </div> 
