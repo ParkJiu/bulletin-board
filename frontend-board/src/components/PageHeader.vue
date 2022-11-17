@@ -9,6 +9,9 @@
           <li class="navbar__menu__item">
             <router-link to="/boardList" @click="ClickedBoard" :class="{navbar__menu__item__clicked : clickedBoard}">Board</router-link>
           </li>
+          <li class="navbar__menu__item">
+            <router-link to="/pageLogin" @click="ClickedLogin" :class="{navbar__menu__item__clicked : clickedLogin}">Login</router-link>
+          </li>
         </ul>
     </div> 
   </header>
@@ -20,17 +23,25 @@ export default {
     return{
       clickedHome: true,
       clickedBoard: false,
+      clickedLogin: false,
     }
   },
   methods:{
     ClickedHome(){
       this.clickedHome = true;
       this.clickedBoard = false;
+      this.clickedLogin = false;
     },
     ClickedBoard(){
       this.clickedHome = false;
       this.clickedBoard = true;
-    }
+      this.clickedLogin = false;
+    },
+    ClickedLogin(){
+      this.clickedHome = false;
+      this.clickedBoard = false;
+      this.clickedLogin = true;
+    },
   }
 }
 </script>

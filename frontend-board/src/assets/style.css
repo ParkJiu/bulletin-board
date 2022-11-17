@@ -225,3 +225,10 @@ textarea {
   background-color: lightgrey;
   margin: 0 7px;
 }
+
+/* PageLogin */
+#loginForm {
+  padding: 50px;
+  margin-top: 120px;
+  text-align: center;
+}
