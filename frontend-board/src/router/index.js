@@ -5,6 +5,17 @@ import BoardList from '@/views/BoardList.vue';
 import BoardInsert from '@/views/board/BoardInsert.vue';
 import BoardDetail from '@/views/board/BoardDetail.vue';
 import PageLogin from '@/views/common/PageLogin.vue';
+// import {store} from "@/vuex/store";
+
+// 컴포넌트 진입 전을 제어할 수 있는 beforeEnter 가드를 추가하고 권한을 확인하는 함수를 적용
+const requireAuth = () => (from, to, next) => {
+  const token = localStorage.getItem('user_token')
+  if (token) {
+    // store.state.isLogin = true
+    return next()
+  } // isLogin === true면 페이지 이동
+  next('/pageLogin') // isLogin === false면 다시 로그인 화면으로 이동
+}
 
 const routes = [
   {
@@ -26,16 +37,19 @@ const routes = [
     path: "/boardList",
     name: "BoardList",
     component: BoardList,
+    beforeEnter: requireAuth()
   },
   {
     path: "/boardInsert",
     name: "BoardInsert",
     component: BoardInsert,
+    beforeEnter: requireAuth()
   },
   {
     path: "/boardDetail",
     name: "BoardDetail",
     component: BoardDetail,
+    beforeEnter: requireAuth()
   },
 ];
 
