@@ -87,7 +87,7 @@ ul {
   border: var(--color-white);
   transition: all var(--animation-duration) ease-in;
 }
-.navbar__menu__item__clicked {
+.route-link-active {
   background-color: #4d82cb;
   border-radius: var(--size-border-radius);
   border: var(--color-white);
