@@ -30,6 +30,7 @@ export default {
     fnLogout(){
       localStorage.removeItem('user_token')
       localStorage.removeItem('user_role')
+      localStorage.removeItem('vuex')
       location.reload() //새로고침으로 화면 깜빡임 수정하기
     }
   }
