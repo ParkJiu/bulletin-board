@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="loginForm">
-      <h2>Please Log In</h2>
+      <h2>로그인</h2>
       <div>
         <form @submit.prevent="fnLogin">
           <!-- submit.prevent -> form의 기본 동작 이벤트인 새로고침을 하지 않도록 제어 -->
