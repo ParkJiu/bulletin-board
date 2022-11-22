@@ -34,9 +34,16 @@ export default {
       this.clickedLogin = false;
     },
     ClickedBoard(){
-      this.clickedHome = false;
-      this.clickedBoard = true;
-      this.clickedLogin = false;
+      if (!this.$store.getters.getIsAuth){
+        this.clickedHome = false;
+        this.clickedBoard = false;
+        this.clickedLogin = true;
+      }
+      else {
+        this.clickedHome = false;
+        this.clickedBoard = true;
+        this.clickedLogin = false;
+      }
     },
     ClickedLogin(){
       this.clickedHome = false;
