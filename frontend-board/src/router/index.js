@@ -14,6 +14,7 @@ const requireAuth = () => (from, to, next) => {
     // store.state.isLogin = true
     return next()
   } // isLogin === true면 페이지 이동
+  alert('로그인이 필요합니다.')
   next('/pageLogin') // isLogin === false면 다시 로그인 화면으로 이동
 }
 
@@ -37,7 +38,7 @@ const routes = [
     path: "/boardList",
     name: "BoardList",
     component: BoardList,
-    beforeEnter: requireAuth()
+    // beforeEnter: requireAuth()
   },
   {
     path: "/boardInsert",
@@ -49,7 +50,7 @@ const routes = [
     path: "/boardDetail",
     name: "BoardDetail",
     component: BoardDetail,
-    beforeEnter: requireAuth()
+    // beforeEnter: requireAuth()
   },
 ];
 
