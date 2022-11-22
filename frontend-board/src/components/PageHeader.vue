@@ -10,7 +10,8 @@
             <router-link to="/boardList" @click="ClickedBoard" :class="{navbar__menu__item__clicked : clickedBoard}">Board</router-link>
           </li>
           <li class="navbar__menu__item">
-            <router-link to="/pageLogin" @click="ClickedLogin" :class="{navbar__menu__item__clicked : clickedLogin}">Login</router-link>
+            <router-link to="/pageLogin" v-if="!this.$store.getters.getIsAuth" @click="ClickedLogin" :class="{navbar__menu__item__clicked : clickedLogin}">Login</router-link>
+            <a v-if="this.$store.getters.getIsAuth" @click="fnLogout">Logout</a>
           </li>
         </ul>
     </div> 
@@ -42,6 +43,11 @@ export default {
       this.clickedBoard = false;
       this.clickedLogin = true;
     },
+    fnLogout(){
+      localStorage.removeItem('user_token')
+      localStorage.removeItem('user_role')
+      location.reload() //새로고침으로 화면 깜빡임 수정하기
+    }
   }
 }
 </script>

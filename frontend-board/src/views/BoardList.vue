@@ -58,17 +58,17 @@ export default {
       requestBody: {}, //리스트 페이지 데이터전송
       list: {}, //리스트 데이터
       paging: {
-        block: 0,
-        end_page: 0,
-        next_block: 0,
-        page: 0,
-        page_size: 0,
-        prev_block: 0,
-        start_index: 0,
-        start_page: 0,
-        total_block_cnt: 0,
-        total_list_cnt: 0,
-        total_page_cnt: 0,
+        block: 0, //현재 블럭
+        end_page: 0, //블럭 마지막 페이지
+        next_block: 0, //다음 블럭 시작 페이지
+        page: 0, //현재 페이지
+        page_size: 0, //페이지 당 보여지는 게시글 최대 개수
+        prev_block: 0, //이전 블럭 마지막 페이지
+        start_index: 0, //인덱스
+        start_page: 0, //블럭 시작 페이지
+        total_block_cnt: 0, //총 블럭 수 totalBlockCnt = (int) Math.ceil(totalPageCnt * 1.0 / blockSize);
+        total_list_cnt: 0, //총 게시글 수
+        total_page_cnt: 0, //총 페이지 수 totalPageCnt = (int) Math.ceil(totalListCnt * 1.0 / this.pageSize);
       }, //페이징 데이터
       page: this.$route.query.page ? this.$route.query.page : 1,
       size: this.$route.query.size ? this.$route.query.size : 10,
