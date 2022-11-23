@@ -69,7 +69,14 @@ export default {
       })
     },
     fnDelete() {
-      if (!confirm("삭제하시겠습니까?")) 
+      if (!this.$store.getters.getIsAuth) {
+        alert('로그인이 필요합니다.')
+        this.$router.push ({
+            path: './pageLogin'
+        })
+      }
+      else {
+        if (!confirm("삭제하시겠습니까?")) 
       return;
 
       this.$axios.delete(this.$serverUrl + '/board/' + this.idx, {})
@@ -79,6 +86,7 @@ export default {
           }).catch((err) => {
         console.log(err);
       })
+      }
     }
   }
 }

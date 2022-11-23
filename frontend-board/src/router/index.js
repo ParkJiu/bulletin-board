@@ -11,7 +11,7 @@ import store from "@/vuex/store";
 const requireAuth = () => (from, to, next) => {
   const token = store.getters.getIsAuth
   if (token) {
-    // store.state.isLogin = true
+    store.state.isLogin = true
     return next()
   } // isLogin === true면 페이지 이동
   alert('로그인이 필요합니다.')
